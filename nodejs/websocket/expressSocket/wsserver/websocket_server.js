@@ -5,6 +5,7 @@ const logger = log4js.getLogger('remote');
 logger.setLevel('TRACE');
 
 const broadcast = (sockets, message) => {
+    //console.log("sockets", sockets);
     sockets.forEach(socket => {
         logger.info('send message: ' + message + ' to ' + socket.upgradeReq.client.remoteAddress);
         socket.send(message);
@@ -41,12 +42,14 @@ module.exports = function websocket_server(server) {
                     break;
                 default:
                     broadcast(getOthers(connections, ws), message);
+                    break;
             }
         });
 
         ws.on('disconnect', function () {
             logger.info('disconnected by ' + address);
             connections = getOthers(connections, ws);
+
         });
 
         ws.on('close', function () {

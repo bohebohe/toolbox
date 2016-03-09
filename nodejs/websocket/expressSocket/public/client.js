@@ -24,13 +24,7 @@ var ws_url = url.protocol === 'https:' ? 'wss:' : 'ws:' + '//' + url.host;
        console.log('success_connection');
        break;
      case 'strings':
-       play(message.value.note);
-       break;
-     case 'brass':
-       breath(message.value.rest);
-       break;
-     case 'percussion':
-      beat(message.value.rhythm);
+       showText(message.value.note);
        break;
      default:
        console.log('Unknown message type: ', e.data);
@@ -48,47 +42,44 @@ var ws_url = url.protocol === 'https:' ? 'wss:' : 'ws:' + '//' + url.host;
  }, KEEPALIVE_INTERVAL);
 
 
+function showText(msg){
+  var text = document.getElementById('text');
+  text.innerHTML = msg;
+}
 
- function play(note_val){
-   var text = document.getElementById('text');
-    text.innerHTML = 'We Love Strings';
-    webSocket.send(JSON.stringify({
-     type: 'strings',
-     value: {
-       note: note_val
-     }
-   }));
- }
- function breath(rest_val){
-   var text = document.getElementById('text');
-    text.innerHTML = 'We Love Brass';
-    webSocket.send(JSON.stringify({
-     type: 'brass',
-     value: {
-       rest:rest_val
-     }
-   }));
- }
- function beat(rhythm_val){
-   var text = document.getElementById('text');
-    text.innerHTML = 'We Love percussion';
-    webSocket.send(JSON.stringify({
-     type: 'percussion',
-     value: {
-       rhythm:rhythm_val
-     }
-   }));
- }
 // event operation
 function clickStrings() {
-  console.log("clickStrings");
-  return play('c d e f g a h c');
+  var note_val = 'We Love Strings';
+  showText(note_val);
+  webSocket.send(JSON.stringify({
+   type: 'strings',
+   value: {
+     note: note_val
+   }
+ }));
+ return false;
 }
 
 function clickBrass() {
-  return breath('a b c d e f g ');
+  var note_val = 'We Love Brass';
+  showText(note_val);
+  webSocket.send(JSON.stringify({
+   type: 'strings',
+   value: {
+     note: note_val
+   }
+ }));
+ return false;
 }
 
 function clickPercussion() {
-  return beat('123 456 789');
+  var note_val = 'We Love Percussion';
+  showText(note_val);
+  webSocket.send(JSON.stringify({
+   type: 'strings',
+   value: {
+     note: note_val
+   }
+ }));
+ return false;
 }
