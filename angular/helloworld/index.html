@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- <html lang="ja" ng-app="myApplication"> -->
+<html lang="ja" ng-app="MyApp">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/js/MyApp.js"></script>
+<!-- <script src="/js/MyAppCtrl.js"></script> -->
+<script src="/js/CookiesExample.js"></script>
+<title>Sample</title>
+</head>
+<body>
+<div ng-controller="MainCtrl">
+  <input type="text" ng-model="name" />
+  <button ng-click="onClickBtn()">cookie set</button>
+  <div>
+    HelloCookie >> {{name}}!
+  </div>
+
+  <!-- <input type="search" placeholder="Search" ng-model="search" >
+  <ul ng-repeat="person in people | filter:search">
+    <li>
+      {{person.firstName}}{{person.lastName}}
+    </li>
+  </ul> -->
+</div><!-- END:ApplicationController -->
+<div class="customer_footer"></div>
+</body>
+</html>

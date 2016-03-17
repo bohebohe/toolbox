@@ -1,0 +1,16 @@
+{
+  "name": "HelloWorld",
+  "homepage": "https://github.com/bohebohe/toolbox",
+  "authors": [
+    "bohebohe <ashibuya0128@gmail.com>"
+  ],
+  "description": "sample for Angular",
+  "main": "index.js",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.1",
+    "angular-cookies": "^1.5.1"
+  }
+}
