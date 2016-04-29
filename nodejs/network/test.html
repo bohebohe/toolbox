@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test Client</title>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.ravenjs.com/2.2.1/raven.min.js"></script>
+  <script>
+    "use strict";
+    Raven.config('https://b5fd3706bd3045ac89504b2e766f5278@app.getsentry.com/71953').install()
+
+    try {
+        alert("hogehoge");
+        throw new Exception("InvalidMonthNo");
+    } catch(e) {
+        Raven.captureException(e)
+    }
+  </script>
+</head>
+<body>
+  Test
+</body>
+</html>

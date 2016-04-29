@@ -1,13 +1,14 @@
 var WebSocketServer = require('websocket').server;
 var http = require('http');
+var port = '3333';
 
 var server = http.createServer(function(request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
     response.writeHead(404);
     response.end();
 });
-server.listen(8888, function() {
-    console.log((new Date()) + ' Server is listening on port 8888');
+server.listen(port, function() {
+    console.log((new Date()) + ' Server is listening on port '+ port);
 });
 
 wsServer = new WebSocketServer({
@@ -38,7 +39,8 @@ wsServer.on('request', function(request) {
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
             console.log('Received Message: ' + message.utf8Data);
-            connection.sendUTF(message.utf8Data);
+            //connection.sendUTF(message.utf8Data);
+            connection.sendUTF("StanbyOK");
         }
         else if (message.type === 'binary') {
             console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');

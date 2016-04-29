@@ -1,7 +1,7 @@
 var net = require('net');
 
 var HOST = '192.168.11.20';
-var PORT = 7777;
+var PORT = 3333;
 
 var client = new net.Socket();
 client.connect(PORT, HOST, function() {
