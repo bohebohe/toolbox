@@ -1,0 +1,123 @@
+{ kind: 'youtube#searchListResponse',
+  etag: '"kiOs9cZLH2FUp6r6KJ8eyq_LIOk/jEFNg_Jv1zbOWQuHrtV0UH2hM5o"',
+  nextPageToken: 'CAUQAA',
+  regionCode: 'JP',
+  pageInfo: { totalResults: 630303, resultsPerPage: 5 },
+  items: 
+   [ { kind: 'youtube#searchResult',
+       etag: '"kiOs9cZLH2FUp6r6KJ8eyq_LIOk/VSdjQu3s4U4tFYkNaJhd77D529M"',
+       id: 
+        { kind: 'youtube#playlist',
+          playlistId: 'PL-FaA4k7UdNZRipzTZ9ibBo3BcMCf_qzP' },
+       snippet: 
+        { publishedAt: '2014-06-30T03:33:51.000Z',
+          channelId: 'UCFtmJN8wzcuSWzXIMDXjq0g',
+          title: 'J. Haydn by Numbers - String Quartets (Hob III)',
+          description: 'Joseph Haydn\'s String Quartets by Hoboken Numbers.',
+          thumbnails: 
+           { default: 
+              { url: 'https://i.ytimg.com/vi/FXCYeGovsOw/default.jpg',
+                width: 120,
+                height: 90 },
+             medium: 
+              { url: 'https://i.ytimg.com/vi/FXCYeGovsOw/mqdefault.jpg',
+                width: 320,
+                height: 180 },
+             high: 
+              { url: 'https://i.ytimg.com/vi/FXCYeGovsOw/hqdefault.jpg',
+                width: 480,
+                height: 360 } },
+          channelTitle: 'ComposersbyNumbers',
+          liveBroadcastContent: 'none' } },
+     { kind: 'youtube#searchResult',
+       etag: '"kiOs9cZLH2FUp6r6KJ8eyq_LIOk/b9lI4MLVM3nURrnUp0rV4cpATzo"',
+       id: { kind: 'youtube#video', videoId: '8NBbI_d72bo' },
+       snippet: 
+        { publishedAt: '2014-05-05T08:13:14.000Z',
+          channelId: 'UCRiIdfyYt7kbpCfyVWwJ1OA',
+          title: 'Haydn string quartets op.74',
+          description: '00:00 String Quartet in C, op.74, no 1 31:40 String Quartet in F, op.74, no 2 56:10 String Quartet in G minor, op.74, no 3 "Rider" The Lindsays, 2003.',
+          thumbnails: 
+           { default: 
+              { url: 'https://i.ytimg.com/vi/8NBbI_d72bo/default.jpg',
+                width: 120,
+                height: 90 },
+             medium: 
+              { url: 'https://i.ytimg.com/vi/8NBbI_d72bo/mqdefault.jpg',
+                width: 320,
+                height: 180 },
+             high: 
+              { url: 'https://i.ytimg.com/vi/8NBbI_d72bo/hqdefault.jpg',
+                width: 480,
+                height: 360 } },
+          channelTitle: 'MarcusHK1',
+          liveBroadcastContent: 'none' } },
+     { kind: 'youtube#searchResult',
+       etag: '"kiOs9cZLH2FUp6r6KJ8eyq_LIOk/RQ5GT73PafR5ADsURFL1CTBHclw"',
+       id: { kind: 'youtube#video', videoId: 'mBmCcSz6HWw' },
+       snippet: 
+        { publishedAt: '2013-09-17T05:45:53.000Z',
+          channelId: 'UCSRTzrEyid4XEtLGZ2KWY8A',
+          title: 'Haydn String Quartet No. 62, Op. 76 No. 3 "Emperor" (2nd mov) Veridis Quartet (Live performance)',
+          description: 'Uploaded by Veridis Quartet. Please contact the Veridis Quartet members if you have any issues/questions The Quartet were unable to obtain audio from NEC ...',
+          thumbnails: 
+           { default: 
+              { url: 'https://i.ytimg.com/vi/mBmCcSz6HWw/default.jpg',
+                width: 120,
+                height: 90 },
+             medium: 
+              { url: 'https://i.ytimg.com/vi/mBmCcSz6HWw/mqdefault.jpg',
+                width: 320,
+                height: 180 },
+             high: 
+              { url: 'https://i.ytimg.com/vi/mBmCcSz6HWw/hqdefault.jpg',
+                width: 480,
+                height: 360 } },
+          channelTitle: 'SoundProfessional Boston',
+          liveBroadcastContent: 'none' } },
+     { kind: 'youtube#searchResult',
+       etag: '"kiOs9cZLH2FUp6r6KJ8eyq_LIOk/pTWssxVqJ_WzkBeO8qYGkbmAng8"',
+       id: { kind: 'youtube#video', videoId: 'vcrKzQ1_2R4' },
+       snippet: 
+        { publishedAt: '2013-11-21T20:50:49.000Z',
+          channelId: 'UCFJFUjH4EwdmH7OVfzcy22g',
+          title: 'BISQC 2013 - Dover String Quartet - Joseph Haydn Quartet in B flat Major "Sunrise"',
+          description: 'The Banff International String Quartet Quartet Competition\'s winning quartet the Dover Quartet performs Joseph Haydn\'s Quartet in B flat Major, Op. 76, No.',
+          thumbnails: 
+           { default: 
+              { url: 'https://i.ytimg.com/vi/vcrKzQ1_2R4/default.jpg',
+                width: 120,
+                height: 90 },
+             medium: 
+              { url: 'https://i.ytimg.com/vi/vcrKzQ1_2R4/mqdefault.jpg',
+                width: 320,
+                height: 180 },
+             high: 
+              { url: 'https://i.ytimg.com/vi/vcrKzQ1_2R4/hqdefault.jpg',
+                width: 480,
+                height: 360 } },
+          channelTitle: 'The Banff Centre',
+          liveBroadcastContent: 'none' } },
+     { kind: 'youtube#searchResult',
+       etag: '"kiOs9cZLH2FUp6r6KJ8eyq_LIOk/hXvdq3mZLjEB7kWyjRE7q-lBhUU"',
+       id: { kind: 'youtube#video', videoId: 'C10-45oHfvc' },
+       snippet: 
+        { publishedAt: '2015-08-30T14:33:31.000Z',
+          channelId: 'UCwbbr8FKVrWLF8T81RI7Lxg',
+          title: 'Joseph Haydn - String Quartet Op. 76, No. 2  \'Quinten\'',
+          description: 'Joseph Haydn String Quartet Op. 76, No. 2 1. Allegro 2. Andante o più tosto allegretto 3. Menuetto. Allegro ma non troppo 4. Vivace assai Cleveland String ...',
+          thumbnails: 
+           { default: 
+              { url: 'https://i.ytimg.com/vi/C10-45oHfvc/default.jpg',
+                width: 120,
+                height: 90 },
+             medium: 
+              { url: 'https://i.ytimg.com/vi/C10-45oHfvc/mqdefault.jpg',
+                width: 320,
+                height: 180 },
+             high: 
+              { url: 'https://i.ytimg.com/vi/C10-45oHfvc/hqdefault.jpg',
+                width: 480,
+                height: 360 } },
+          channelTitle: 'Bartje Bartmans',
+          liveBroadcastContent: 'none' } } ] }

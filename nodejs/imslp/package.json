@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "ajax-request": "^1.2.1",
+    "csvtojson": "^0.5.4",
+    "googleapis": "^5.2.1",
     "json2csv": "^3.3.0",
+    "line-reader": "^0.4.0",
     "xhr2": "^0.1.3"
   }
 }
