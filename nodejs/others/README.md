@@ -1,5 +1,5 @@
 # Scripts
 
-## outline
+## desc
 
-small scripts by node.js
+- small scripts by node.js
