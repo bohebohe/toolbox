@@ -11,16 +11,29 @@ const config = {
     order: 'viewCount'
 };
 const ythandler = new HandleYoutube(config);
+const filename = 'imslp_composer.csv';
+
+
+function outputCsv(data, start,blloop) {
+    json2csv({
+        data: data
+    }, function(err, csv) {
+        if (err) console.log(err);
+        fs.appendFileSync(filename, csv);
+        start = start + 1000;
+        //暫定的コメントアウト
+        if(blloop){
+          getData(start, filename);
+        }
+    });
+}
 
 
 function getData(start) {
-
     const format = 'json';
     let url = 'http://imslp.org/imslpscripts/API.ISCR.php?account';
     url += '=worklist/disclaimer=accepted/sort=id/type=1/start=';
     url += start + '/retformat=' + format;
-
-    const filename = 'imslp_composer.csv';
 
     request({
         url: url,
@@ -30,30 +43,23 @@ function getData(start) {
         const result = JSON.parse(body);
 
         let blloop = result.metadata.moreresultsavailable;
-        for (var i = 0; i < 1000; i++) {
+        console.log(Object.keys(result).length);
+        for (var i = 0; i < Object.keys(result).length-1 ; i++) {
             (function(chunk) {
-                ythandler.search(chunk.id, function(ret) {
-                    chunk.ytcount = ret.pageInfo.totalResults;
-                    //console.log(chunk);
-                    data.push(chunk);
-                });
+                let search = chunk.id.replace(/Category:/gi, '');
+                console.log(search);
+                ythandler.search(search)
+                    .on('complete', function(ret) {
+                        chunk.name = search;
+                        chunk.ytcount = ret.pageInfo.totalResults;
+                        console.log(ret);
+                        data.push(chunk);
+                        if (data.length === Object.keys(result).length-1) {
+                            outputCsv(data, start,blloop);
+                        }
+                    });
             })(result[i])
-
         }
-        console.log(data);
-
-        json2csv({
-            data: data
-        }, function(err, csv) {
-            if (err) console.log(err);
-            console.log(start);
-            fs.appendFileSync(filename, csv);
-            start = start + 1000;
-            //暫定的コメントアウト
-            // if(blloop){
-            //   getData(start, filename);
-            // }
-        });
     });
 }
 

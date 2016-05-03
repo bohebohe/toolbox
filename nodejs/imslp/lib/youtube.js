@@ -2,6 +2,8 @@
 
 var google = require('googleapis');
 var util = require('util');
+const EventEmitter = require('events');
+
 var credential = require('/Users/bohebohechan/.google/credential');
 
 function HandleYoutube(config) {
@@ -17,7 +19,9 @@ function HandleYoutube(config) {
     }
 }
 
-HandleYoutube.prototype.search = function(query, callback) {
+HandleYoutube.prototype.search = function(query) {
+
+    const ev = new EventEmitter();
     this.youtube.search.list({
         part: this.part,
         q: query,
@@ -25,14 +29,18 @@ HandleYoutube.prototype.search = function(query, callback) {
         order: this.order
     }, function(err, data) {
         if (err) {
-            callback(err);
+            console.log(err);
+            ev.emit('err', err);
+            //callback(err);
         }
         if (data) {
-            //console.log(util.inspect(data, false, null));
-            callback(data);
+            console.log(util.inspect(data, false, null));
+            //callback(data);
+            ev.emit('complete', data);
         }
         //process.exit();
     });
+    return ev;
 };
 
 module.exports = HandleYoutube;
