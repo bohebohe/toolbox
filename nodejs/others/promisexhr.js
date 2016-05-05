@@ -14,7 +14,7 @@ function httpcall(url){
         //var client = new XMLHttpRequest();
         var client = new request();
  console.log(url2);
- console.log(method);
+ console.log('-------');
 //         if(args && (method === 'POST' || method ==='PUT')){
 //           uri += '?';
 //           var argcount = 0;
