@@ -43,7 +43,6 @@ function getRemoteFile(link, filename) {
     var rem = request(link);
     var postData = '';
     rem.on('data', function(chunk) {
-        console.log('chunk');
         postData += chunk;
 
     });
