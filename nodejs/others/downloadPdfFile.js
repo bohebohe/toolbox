@@ -1,6 +1,3 @@
-'use strict';
-
-
 var re = /\d+.pdf/;
 var step = 10;
 
