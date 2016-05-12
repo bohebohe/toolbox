@@ -19,7 +19,7 @@ module.exports = function (filename, callback) {
 	outfile += '.jpg';
 
 	command = pre.concat([filename], post, [outfile]);
-	console.log(command);
+	//console.log(command);
 
 	im.convert(command, callback);
 };

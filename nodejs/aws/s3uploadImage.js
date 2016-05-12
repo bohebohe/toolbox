@@ -8,16 +8,6 @@ const filetype = require('./filetype');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 
-
-// const bucketname = 'design-mplus-berioscore';
-// const credentials = new AWS.SharedIniFileCredentials({
-//     profile: 'berio-ashibuya'
-// });
-// AWS.config.credentials = credentials;
-//
-// let s3 = new AWS.S3();
-
-
 const pool = mysql.createPool({
     host: '192.168.99.100',
     port: '3306',
@@ -25,23 +15,6 @@ const pool = mysql.createPool({
     password: '',
     database: 'imslp'
 });
-
-// function uploadFile(remoteFilename, fileBuffer) {
-//     //let metaData = getContentTypeByFile(fileName);
-//     console.log('upload');
-//     let metaData = 'image/pdf';
-//
-//     s3.putObject({
-//         ACL: 'public-read',
-//         Bucket: bucketname,
-//         Key: remoteFilename,
-//         Body: fileBuffer,
-//         ContentType: metaData
-//     }, function(error, response) {
-//         console.log('uploaded file[' + remoteFilename + '] as [' + metaData + ']');
-//         console.log(arguments);
-//     });
-// }
 
 function getRemoteFile(link, imslpno) {
 
@@ -95,7 +68,7 @@ function getRemoteFile(link, imslpno) {
 
 //Main
 
-let sql = 'select id , ImslpNo, pdfDirectLink from score where pdfDirectLink !="" limit 20';
+let sql = 'select id , ImslpNo, pdfDirectLink from score where pdfDirectLink !="" limit 20 ,100';
 //let sql = 'select id , ImslpNo, pdfDirectLink from score where id ="IMSLP15924"';
 console.log(sql);
 pool.query(sql, function(err, rows) {

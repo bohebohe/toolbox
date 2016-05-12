@@ -5,7 +5,6 @@ const async = require('async'),
     fs = require('fs'),
     path = require('path');
 
-module.exports = function(imslpid, cb) {
 
     const bucketname = 'design-mplus-berioscore';
     const credentials = new AWS.SharedIniFileCredentials({
@@ -15,7 +14,10 @@ module.exports = function(imslpid, cb) {
 
     let s3 = new AWS.S3();
 
-    var directoryName = './' + imslpid;
+    //var directoryName = './' + imslpid;
+    
+    var directoryName = '/Users/bohebohechan/Desktop/score/HOKA0001';
+    var imslpid = 'HOKA0001';
     var directoryPath = path.resolve(directoryName);
 
     var files = fs.readdirSync(directoryPath);
@@ -36,4 +38,3 @@ module.exports = function(imslpid, cb) {
         console.log(results);
     });
 
-};
