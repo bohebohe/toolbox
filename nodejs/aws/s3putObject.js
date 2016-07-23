@@ -15,9 +15,9 @@ const async = require('async'),
     let s3 = new AWS.S3();
 
     //var directoryName = './' + imslpid;
-    
-    var directoryName = '/Users/bohebohechan/Desktop/score/HOKA0001';
-    var imslpid = 'HOKA0001';
+
+    var directoryName = '/Users/bohebohechan/Desktop/score/HOKA0004';
+    var imslpid = 'HOKA0004';
     var directoryPath = path.resolve(directoryName);
 
     var files = fs.readdirSync(directoryPath);
@@ -37,4 +37,3 @@ const async = require('async'),
         if (err) console.error(err);
         console.log(results);
     });
-

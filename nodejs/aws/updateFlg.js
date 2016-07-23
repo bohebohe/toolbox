@@ -5,16 +5,16 @@ var s3get = require('./s3get');
 
 
 const pool = mysql.createPool({
-    host: '192.168.2.42',
-    port: '3306',
-    user: 'root',
-    password: '',
-    database: 'musik'
-    // host: '192.168.99.100',
+    // host: '192.168.2.42',
     // port: '3306',
     // user: 'root',
     // password: '',
-    // database: 'imslp'
+    // database: 'musik'
+    host: '192.168.99.100',
+    port: '3306',
+    user: 'root',
+    password: '',
+    database: 'imslp'
 });
 
 var execUpdate = function(sql){
@@ -24,7 +24,7 @@ var execUpdate = function(sql){
           console.log(err);
       }
 
-      console.log(rows.OkPacket.affectedRows);
+      console.log(rows);
   });
 };
 

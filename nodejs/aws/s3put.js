@@ -49,8 +49,8 @@ module.exports = function(imslpid, callback) {
               var dir = __dirname +'/'+ imslpid;
               console.log('Rmdir :' + dir);
               rmdir(dir);
+              callback(null);
             }
-
         });
 
 

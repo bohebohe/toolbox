@@ -11,11 +11,16 @@ const mkdirp = require('mkdirp');
 
 
 const pool = mysql.createPool({
-    host: '192.168.2.42',
+    // host: '192.168.2.42',
+    // port: '3306',
+    // user: 'root',
+    // password: '',
+    // database: 'musik'
+    host: '192.168.99.100',
     port: '3306',
     user: 'root',
     password: '',
-    database: 'musik'
+    database: 'imslp'
 });
 let step = 2;
 

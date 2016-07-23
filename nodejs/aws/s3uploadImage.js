@@ -37,8 +37,8 @@ function getRemoteFile(link, imslpno) {
                     console.log('End: ', pdffile);
                     filetype(pdffile, function(info) {
                         console.log(info);
-                        if (info !== null) {
-                            //Convert
+                        if (info !== null ) {
+                            //Convert To Update
                             convert(pdffile, function(err, stdout) {
                                 if (err) {
                                     console.error(err);
