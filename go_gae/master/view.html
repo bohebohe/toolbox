@@ -1,0 +1,9 @@
+<h1>View</h1>
+{{range .}}
+  <p>タイトル：{{.Title}}</p>
+  <p>著者：{{.Author}}</p>
+  <p>なかみ：{{.Contents}}</p>
+  <p><a href="/edit?title={{.Title}}">{{.Title}}</a><p>
+  <hr>
+{{end}}
+<p><a href="/save">save</a></p>

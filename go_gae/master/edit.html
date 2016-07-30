@@ -1,0 +1,10 @@
+<h1>EDIT</h1>
+<form action="/edit" method="POST">
+{{range .}}
+<p>ほんのタイトル<input type="text" value="{{.Title}}"></p>
+<p>ほんの著者<input type="text" value="{{.Author}}"></p>
+<p>ほんの内容<input type="text" value="{{.Contents}}"></p>
+<input type="hidden" name="exec"  value="store">
+{{end}}
+<div><input type="submit" value="EDIT"></div>
+</form>

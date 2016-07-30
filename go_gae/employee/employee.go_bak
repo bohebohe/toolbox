@@ -1,0 +1,97 @@
+package employee
+
+import (
+	"fmt"
+	"html/template"
+	"net/http"
+	"time"
+	//"regexp"
+
+	"appengine"
+	"appengine/datastore"
+)
+
+type Employee struct {
+	FirstName          string
+	LastName           string
+	HireDate           time.Time
+	AttendedHRTraining bool
+}
+
+func init() {
+	http.HandleFunc("/", root)
+	http.HandleFunc("/save", save)
+}
+
+// getKeys returns the key used for all Employee entries.
+func getKeys(c appengine.Context) *datastore.Key {
+	return datastore.NewKey(
+		c,         // context.Context
+		"Company", // Kind
+		"",        // String ID; empty means no string ID
+		0,         // Integer ID; if 0, generate automatically. Ignored if string ID specified.
+		nil,       // Parent Key; nil means no parent
+	)
+}
+
+// [START func_root]
+func root(w http.ResponseWriter, r *http.Request) {
+	c := appengine.NewContext(r)
+	// [start query]
+
+	// q := datastore.NewQuery("Employee      ").Ancestor(getKeys(c)).Order("-Date").Limit(10)
+	// // [END query]
+	// // [START getall]
+	// employees := make([]Employee, 0, 10)
+	// if _, err := q.GetAll(c, &employees); err != nil {
+	// 	http.Error(w, err.Error(), http.StatusInternalServerError)
+	// 	return
+	// }
+
+	//employeeKey := datastore.NewKey(c, "Employee", getKeys(c), 0, nil)
+	var emp Employee
+	if err := datastore.Get(c, getKeys(c), &emp); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	result := emp.FirstName
+	fmt.Fprintf(w, "Stored and retrieved the Employee named %q", result)
+
+}
+
+var employeeTemplate = template.Must(template.New("book").Parse(`
+<html>
+  <head>
+    <title>Go Employee</title>
+  </head>
+  <body>
+    {{range .}}
+      <pre>{{.FirstName}}</pre>
+      <pre>{{.LastName}}</pre>
+    {{end}}
+    <form action="/save" method="post">
+      <div>FirstName:<input type="text" name="firstname"></div>
+      <div>LastName:<input type="text" name="lastname"></div>
+      <div><input type="submit" value="Submit"></div>
+    </form>
+  </body>
+</html>
+`))
+
+func save(w http.ResponseWriter, r *http.Request) {
+	c := appengine.NewContext(r)
+	employee := &Employee{
+		FirstName: r.FormValue("firstname"),
+		LastName:  r.FormValue("lastname"),
+		HireDate:  time.Now(),
+	}
+	employee.AttendedHRTraining = true
+
+	key := datastore.NewIncompleteKey(c, "Employee", nil)
+	if _, err := datastore.Put(c, key, employee); err != nil {
+		// Handle err
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+	http.Redirect(w, r, "/", http.StatusFound)
+}
